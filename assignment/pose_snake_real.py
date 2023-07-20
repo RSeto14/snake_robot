@@ -42,7 +42,7 @@ def main():
                 frame = cv2.flip(frame, 1) # Flip horizontal
                 ####################################################################################################
 
-                ## Calculate joint angle #################################################################################
+                ## Calculate human joint angle #################################################################################
                 "------ change here -------------------------------------------------------------------------------------"
                 if pose_results.pose_landmarks != None:
                     RShoulder = (pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x, pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y)
