@@ -23,8 +23,18 @@ def main():
             mp_drawing.draw_landmarks(frame, pose_results.pose_landmarks, mp_pose.POSE_CONNECTIONS) # draw skeleton on the frame
             frame = cv2.flip(frame, 1) # Flip horizontal
             ####################################################################################################
+
+            ## openCV #####################################################################################
+            #text
+            cv2.putText(frame,"enter text here",(10,60), cv2.FONT_HERSHEY_SIMPLEX, 2,(0,0,0),3,cv2.LINE_AA)
             
-            ## Calculate human joint angle #################################################################################
+            # display the frame
+            cv2.namedWindow("Output", cv2.WINDOW_NORMAL)
+            cv2.resizeWindow('Output', 900, 500)
+            cv2.imshow('Output', frame)
+            ###############################################################################################
+            
+            ## Calculate joint angle #################################################################################
             "------ change here -------------------------------------------------------------------------------------"
             if pose_results.pose_landmarks != None:
                 RShoulder = (pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x, pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y)
@@ -37,15 +47,6 @@ def main():
             "--------------------------------------------------------------------------------------------------------"
             ##########################################################################################################
 
-            ## openCV #####################################################################################
-            #text
-            cv2.putText(frame,"enter text here",(10,60), cv2.FONT_HERSHEY_SIMPLEX, 2,(0,0,0),3,cv2.LINE_AA)
-            
-            # display the frame
-            cv2.namedWindow("Output", cv2.WINDOW_NORMAL)
-            cv2.resizeWindow('Output', 900, 500)
-            cv2.imshow('Output', frame)
-            ###############################################################################################
             
         except:
             break
