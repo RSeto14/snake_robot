@@ -42,18 +42,6 @@ def main():
                 frame = cv2.flip(frame, 1) # Flip horizontal
                 ####################################################################################################
 
-                ## Calculate human joint angle #################################################################################
-                "------ change here -------------------------------------------------------------------------------------"
-                if pose_results.pose_landmarks != None:
-                    RShoulder = (pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x, pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y)
-                    #https://developers.google.com/mediapipe/solutions/vision/pose_landmarker/python
-                else:
-                    RShoulder = ("None","None")
-
-                print("RShoulder",RShoulder)
-                "--------------------------------------------------------------------------------------------------------"
-                ##########################################################################################################
-
                 ## openCV #############################################################################################
                 #text
                 cv2.putText(frame,"enter text here",(10,60), cv2.FONT_HERSHEY_SIMPLEX, 2,(0,0,0),3,cv2.LINE_AA)
@@ -64,7 +52,17 @@ def main():
                 cv2.imshow('Output', frame)
                 #######################################################################################################
 
+                ## Calculate joint angle #################################################################################
+                "------ change here -------------------------------------------------------------------------------------"
+                if pose_results.pose_landmarks != None:
+                    RShoulder = (pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x, pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y)
+                    #https://developers.google.com/mediapipe/solutions/vision/pose_landmarker/python
+                else:
+                    RShoulder = ("None","None")
 
+                print("RShoulder",RShoulder)
+                "--------------------------------------------------------------------------------------------------------"
+                ##########################################################################################################
 
             ## controller #################################################
             "-------- change here ----------------------------------------"
