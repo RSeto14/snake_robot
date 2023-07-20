@@ -15,9 +15,11 @@ python mediapipe_test.py
 Control snake robot in simulator(gym,mujoco).
 
 **set initial joint angle**
+
 snake.py
 
 <img src="img/snake-py.png" width=720>
+
 
 snake_sim_test.py
 
