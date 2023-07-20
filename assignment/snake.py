@@ -31,11 +31,11 @@ class SnakeEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
     
     def reset_model(self):
-        from snake_controller import controller
-        ctrl = controller()
         qpos = self.init_qpos
+        "-------- change here -------------------------------------------------------------------------------------"
         for i in range(12):
-            qpos[8+2*i] = ctrl.action(t=0)[i]
+            qpos[8+2*i] = 0
+        "-----------------------------------------------------------------------------------------------------------"
         self.set_state(qpos,self.init_qvel)
         return self._get_obs()
 
