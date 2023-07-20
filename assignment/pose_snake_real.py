@@ -34,13 +34,15 @@ def main():
     while cap.isOpened():
         try:
             if time_step % update ==0: 
-                ## mediapipe #####################################################################################################################
+                ## mediapipe #######################################################################################
                 _, frame = cap.read() # read frame
                 frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # convert to RGB
                 pose_results = pose.process(frame_rgb) # process the frame for pose detection
                 mp_drawing.draw_landmarks(frame, pose_results.pose_landmarks, mp_pose.POSE_CONNECTIONS) # draw skeleton on the frame
                 frame = cv2.flip(frame, 1) # Flip horizontal
+                ####################################################################################################
 
+                ## Calculate joint angle #################################################################################
                 "------ change here -------------------------------------------------------------------------------------"
                 if pose_results.pose_landmarks != None:
                     RShoulder = (pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x, pose_results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y)
@@ -50,7 +52,7 @@ def main():
 
                 print("RShoulder",RShoulder)
                 "--------------------------------------------------------------------------------------------------------"
-                ##################################################################################################################################
+                ##########################################################################################################
 
                 ## openCV #############################################################################################
                 #text
