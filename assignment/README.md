@@ -1,7 +1,7 @@
 # Control snake robot by human pose detection
 
 ## Human pose detection
-Pose detectin by mediapipe
+Pose detection by mediapipe
 
 [mediapipe_test.py](mediapipe_test.py)
 
